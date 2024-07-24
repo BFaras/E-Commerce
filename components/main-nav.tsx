@@ -11,7 +11,6 @@ interface MainNavProps {
 
 export default function MainNav({data}:MainNavProps) {
 
-    console.log(data)
     const pathName = usePathname();
 
     const routes = data.map(( route ) => ({

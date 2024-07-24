@@ -2,7 +2,7 @@ import { Billboard as BillboardType} from '@/type'
 import React from 'react'
 
 interface BillboardProps {
-    data:BillboardType
+    data: BillboardType
 }
 export default function Billboard({data}:BillboardProps) {
   return (
