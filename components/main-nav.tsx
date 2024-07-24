@@ -1,3 +1,4 @@
+"use client"
 import { cn } from '@/lib/utils';
 import { Category } from '@/type';
 import Link from 'next/link';
@@ -10,6 +11,7 @@ interface MainNavProps {
 
 export default function MainNav({data}:MainNavProps) {
 
+    console.log(data)
     const pathName = usePathname();
 
     const routes = data.map(( route ) => ({
@@ -25,6 +27,7 @@ export default function MainNav({data}:MainNavProps) {
         href = {route.href}
         className={cn("text-sm font-medium transition-colors hover:text-black",
           route.active? "text-black":"text-netural-500")}>
+            {route.label}
         </Link>
       ))}
     </nav>
