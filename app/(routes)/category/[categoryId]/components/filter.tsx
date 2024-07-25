@@ -58,7 +58,6 @@ export default function Filter({
                 </div>
             ))}
         </div>
-      Filter
     </div>
   )
 }
