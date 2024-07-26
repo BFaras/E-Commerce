@@ -27,6 +27,7 @@ export default function ProductCard({data}:ProductCarProps) {
         event.stopPropagation()
         console.log("propagation",data)
         previewModal.onOpen(data)
+        console.log("after propagation",data)
 
         
     }

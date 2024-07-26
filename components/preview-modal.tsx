@@ -12,7 +12,7 @@ export default function PreviewModal() {
     if (!product) {
         return null
     }
-    
+
   return (
     <Modal
     open = {previewModal.isOpen}

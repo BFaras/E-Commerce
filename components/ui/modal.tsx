@@ -1,3 +1,5 @@
+"use client";
+
 import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react';
 import React, { Fragment } from 'react'
 import IconButton from './icon-button';
@@ -10,14 +12,14 @@ interface ModalProps {
 }
 
 export default function Modal({open,onClose,children}:ModalProps) {
-
+    console.log("I ms in modal")
   return (
-    <Transition show= {open} appear as ={Fragment}>
+    <Transition show = {open} appear as ={Fragment}>
         <Dialog as= "div" className="relative z-10" onClose={onClose}>
             <div className='fixed inset-0 bg-black bg-opacity-50'></div>
 
             <div className='fixed inset-0 overflow-y-auto'>
-                <div className='flex min-h-full items-center justify-ceter p-4 text-center'>
+                <div className='flex min-h-full items-center justify-center p-4 text-center'>
                     <TransitionChild as = {Fragment}
                     enter="ease-out duration-300"
                     enterFrom="opacity-0 scale-95"

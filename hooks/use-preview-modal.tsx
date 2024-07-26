@@ -1,4 +1,6 @@
-import { Product } from "@/type";
+"use client"
+import 
+{ Product } from "@/type";
 import { create} from "zustand"
 
 interface PreviewModalStore {

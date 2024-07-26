@@ -7,11 +7,10 @@ export default function ModelProvider() {
 
     const [isMounted,setIsMounted] = useState(false)
 
-
     useEffect(() => {
         setIsMounted(true)
     }, [])
-    if (isMounted) {
+    if (!isMounted) {
         return null
     }
   return ( 
