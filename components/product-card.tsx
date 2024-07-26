@@ -9,6 +9,7 @@ import Router from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import PreviewModal from './preview-modal';
 import { usePreviewModal } from '@/hooks/use-preview-modal';
+import { useCart } from '@/hooks/use-cart';
 
 interface ProductCarProps {
     data: Product;
@@ -17,6 +18,7 @@ interface ProductCarProps {
 export default function ProductCard({data}:ProductCarProps) {
 
     const previewModal = usePreviewModal()
+    const cart = useCart()
     const router = useRouter();
 
     function handleClick() {
@@ -25,11 +27,12 @@ export default function ProductCard({data}:ProductCarProps) {
 
     function onPreview(event:any) { 
         event.stopPropagation()
-        console.log("propagation",data)
-        previewModal.onOpen(data)
-        console.log("after propagation",data)
+        previewModal.onOpen(data)  
+    }
 
-        
+    function onAddToCart(event:any) { 
+        event.stopPropagation()
+        cart.addItem(data)  
     }
 
   return (
@@ -49,7 +52,7 @@ export default function ProductCard({data}:ProductCarProps) {
                     onClick={onPreview}
                     icon={<Expand size = {20} className='text-gray-600'></Expand>}></IconButton>
                     <IconButton
-                    onClick={() =>{}}
+                    onClick={onAddToCart}
                     icon={<ShoppingCart size = {20} className='text-gray-600'></ShoppingCart>}></IconButton>
                     </div>
             </div>
