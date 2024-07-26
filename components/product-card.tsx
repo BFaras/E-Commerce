@@ -1,12 +1,14 @@
 "use client"
 import { Product } from '@/type';
 import  Image  from 'next/image';
-import React from 'react'
+import React, { MouseEventHandler } from 'react'
 import IconButton from './ui/icon-button';
 import {  Expand, ShoppingCart } from 'lucide-react';
 import Currency from './ui/currency';
 import Router from 'next/navigation';
 import { useRouter } from 'next/navigation';
+import PreviewModal from './preview-modal';
+import { usePreviewModal } from '@/hooks/use-preview-modal';
 
 interface ProductCarProps {
     data: Product;
@@ -14,14 +16,23 @@ interface ProductCarProps {
 
 export default function ProductCard({data}:ProductCarProps) {
 
+    const previewModal = usePreviewModal()
     const router = useRouter();
 
-    function handlClick() {
+    function handleClick() {
         router.push(`/product/${data?.id}`)
     }
 
+    function onPreview(event:any) { 
+        event.stopPropagation()
+        console.log("propagation",data)
+        previewModal.onOpen(data)
+
+        
+    }
+
   return (
-    <div onClick = {handlClick} className="big-white group cursor-pointer rounded-xl border p-3 space-y-4">
+    <div onClick = {handleClick} className="big-white group cursor-pointer rounded-xl border p-3 space-y-4">
       { /*UImages and action*/ }
 
         <div className = "aspect-square rounded-xl bg-gray-100 relative">
@@ -34,7 +45,7 @@ export default function ProductCard({data}:ProductCarProps) {
             <div className='opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5'>
                 <div className="flex gap-x-6 justify-center">
                     <IconButton
-                    onClick={() =>{}}
+                    onClick={onPreview}
                     icon={<Expand size = {20} className='text-gray-600'></Expand>}></IconButton>
                     <IconButton
                     onClick={() =>{}}
