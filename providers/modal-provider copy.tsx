@@ -16,6 +16,7 @@ export default function ModelProvider() {
   return ( 
     <>
         <PreviewModal></PreviewModal>
+        <PreviewModal></PreviewModal>
     </>
   )
 }

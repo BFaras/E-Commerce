@@ -1,4 +1,3 @@
-"use client"
 import 
 { Product } from "@/type";
 import { create} from "zustand"
