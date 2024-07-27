@@ -19,8 +19,8 @@ export default function Summary() {
     },0)
 
     const onCheckout = async () => {
-        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`,{
-            producitIds: items?.map((item) => item.id)
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_URL}/checkout`,{
+            productsId: items!.map((item) => item.id)
         });
 
         window.location = response.data.url
@@ -29,6 +29,7 @@ export default function Summary() {
     useEffect(()=>{
         if (searchParams.get("success")) {
             toast.success("Order successful")
+            console.log("supposed to removeAll adn everything")
             removeAll();
         }
 

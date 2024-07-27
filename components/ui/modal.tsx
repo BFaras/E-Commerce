@@ -12,7 +12,7 @@ interface ModalProps {
 }
 
 export default function Modal({open,onClose,children}:ModalProps) {
-    console.log("I ms in modal")
+
   return (
     <Transition show = {open} appear as ={Fragment}>
         <Dialog as= "div" className="relative z-10" onClose={onClose}>
