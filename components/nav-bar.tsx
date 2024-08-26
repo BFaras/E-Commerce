@@ -5,12 +5,15 @@ import Link from 'next/link'
 import MainNav from './main-nav'
 import getCategories from '@/actions/get-categories'
 import NavbarActions from './navbar-actions'
+import getStores from '@/actions/get-stores'
 
 export const revalidate = 0;
 
 export default async function NavBar() {
 
   const categories = await getCategories()
+  const stores = await getStores()
+  
   return (
     <div className='border-b'>
         <Container>
@@ -19,7 +22,7 @@ export default async function NavBar() {
                 <p className='font-bold text-xl'>Store</p>
             </Link>
             <MainNav data={categories}></MainNav>
-            <NavbarActions></NavbarActions>
+            <NavbarActions data = {stores}></NavbarActions>
             </div>
         </Container>
     </div>

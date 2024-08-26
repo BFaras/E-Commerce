@@ -1,33 +1,41 @@
+import React, { forwardRef } from 'react';
 import { cn } from '@/lib/utils';
-import { propagateServerField } from 'next/dist/server/lib/render-server'
-import React, { forwardRef } from 'react'
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
-const Button = forwardRef<HTMLButtonElement,ButtonProps>(({
-    className,
-    children,
-    disabled,
-    type= "button",
-    ...props},href) =>{
-        return(
-            <button className={cn(`w-auto 
-                rounded-full
-                bg-black 
-                border-transparent 
-                px-5 
-                py-3 
-                disabled:cursor-not-allowed 
-                disabled:opacity-50
-                text-white
-                font-semibold
-                hover:opacity=75 
-                transition`,className)}
-                
-                {...props}>
-                {children}
-            </button>
-        )
-    });
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  size?: 'small' | 'medium' | 'large';  // Add the size prop
+}
 
-    Button.displayName = "Button"
-    export default Button;
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
+  className,
+  children,
+  disabled,
+  size = 'medium',  // Default size
+  type = 'button',
+  ...props
+}, ref) => {
+  const sizeClasses = {
+    small: 'px-3 py-1 text-sm',
+    medium: 'px-5 py-3 text-base',
+    large: 'px-7 py-4 text-lg',
+  };
+
+  return (
+    <button
+      ref={ref}
+      className={cn(
+        `w-auto rounded-full bg-black border-transparent disabled:cursor-not-allowed 
+        disabled:opacity-50 text-white font-semibold hover:opacity-75 transition`,
+        sizeClasses[size],  // Apply size class based on the size prop
+        className
+      )}
+      type={type}
+      disabled={disabled}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+});
+
+Button.displayName = 'Button';
+export default Button;
