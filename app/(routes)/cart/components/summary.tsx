@@ -18,7 +18,10 @@ export default function Summary() {
         return total + Number(item.price)
     },0)
 
-    const onCheckout = async () => {
+    const onCheckout = async (event:any) => {
+        event.stopPropagation(); // Prevents bubbling
+        event.preventDefault();
+        console.log("checkout done")
         const response = await axios.post(`${process.env.NEXT_PUBLIC_URL}/checkout`,{
             productsId: items!.map((item) => item.id)
         });
@@ -59,7 +62,7 @@ export default function Summary() {
                 <Currency value={totalPrice}></Currency>
             </div>
         </div>
-        <Button  onClick={onCheckout}className="w-full mt-6">
+        <Button  onClick={(e)=> onCheckout(e)}className="w-full mt-6">
             Checkout
         </Button>
     </div>

@@ -34,7 +34,7 @@ export default async  function CategoryPage({params,searchParams}:CategoryPagePr
     return (
     <div className='bg-white'>
       <Container>
-        <Billboard data= {category.billboard}>
+        <Billboard data= {category?.billboard}>
 
         </Billboard>
         <div className='px-4 sm:px-6 lg:px-8 pb-24'>

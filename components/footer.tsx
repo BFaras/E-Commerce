@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className='bg-white border-t'>
         <div className='mx-auto py-10'>
             <p className='text-center text-xs text-black'>
-                &copy; 20203 Fake store name, Inc. All rights reserved
+                &copy; 2025 Fake store name, Inc. All rights reserved
             </p>
         </div>
       
