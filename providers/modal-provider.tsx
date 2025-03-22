@@ -14,7 +14,6 @@ export default function ModalProvider() {
   if (!isMounted) {
       return null
   }
-  console.log("help")
   return ( 
     <>
         <PreviewModal></PreviewModal>

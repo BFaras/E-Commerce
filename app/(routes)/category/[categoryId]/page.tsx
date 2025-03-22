@@ -31,6 +31,7 @@ export default async  function CategoryPage({params,searchParams}:CategoryPagePr
   const sizes = await getSizes();
   const colors = await getColors();
   const category = await getCategory(params.categoryId);
+
     return (
     <div className='bg-white'>
       <Container>

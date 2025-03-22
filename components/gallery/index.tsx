@@ -4,7 +4,7 @@ import React from 'react';
 import { Image as ImageType } from "@/type";
 import { Tab } from '@headlessui/react';
 import GalleryTab from './gallery-tab';
-import Image from 'next/image'; // Import Image from Next.js for optimized images
+import Image from 'next/image'; 
 
 interface GalleryProps {
     images: ImageType[];

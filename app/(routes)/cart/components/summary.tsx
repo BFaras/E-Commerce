@@ -19,10 +19,9 @@ export default function Summary() {
     },0)
 
     const onCheckout = async (event:any) => {
-        event.stopPropagation(); // Prevents bubbling
+        event.stopPropagation();
         event.preventDefault();
-        console.log("checkout done")
-        const response = await axios.post(`${process.env.NEXT_PUBLIC_URL}/checkout`,{
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_CHECKOUT}/checkout`,{
             productsId: items!.map((item) => item.id)
         });
 
@@ -32,7 +31,6 @@ export default function Summary() {
     useEffect(()=>{
         if (searchParams.get("success")) {
             toast.success("Order successful")
-            console.log("supposed to removeAll adn everything")
             removeAll();
         }
 
