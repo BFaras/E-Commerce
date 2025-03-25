@@ -3,8 +3,8 @@
 ECOMMERCE_ENV_FILE="./.env"
 NETWORK_NAME="app_network"
 
-STORE_ID="42a53b71-7fc8-4644-a6e3-3fe2c0c03443"
-BILLBOARD_ID="f212f24f-218c-4d48-bac0-de1bc0279db0"
+STORE_ID="180f8d3c-1201-4b8f-8db8-3fa562ccfe2a"
+BILLBOARD_ID="4a3c7b91-f240-47b6-a592-8fa0884857d2"
 
 if [ -f "$ECOMMERCE_ENV_FILE" ]; then
   echo "⚠️  e-commerce .env file already exists — it will be overwritten..."
